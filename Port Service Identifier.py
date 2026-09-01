@@ -1,4 +1,4 @@
-def PortServiceIdentifier():
+def port_service_identifier():
     port_service_mapping = {
         20: "FTP Data Transfer",
         21: "FTP Control",
@@ -16,11 +16,17 @@ def PortServiceIdentifier():
         27017: "MongoDB"
     }
 
-    port_number = int(input("Enter a port number: "))
+    user_input = input("Enter a port number: ")
+
+    if not user_input.isdigit():
+        print("Invalid input. Please enter a numeric port number.")
+        return
+
+    port_number = int(user_input)
 
     if port_number in port_service_mapping:
         print(f"Port {port_number} is used for {port_service_mapping[port_number]}.")
     else:
         print(f"Port {port_number} is not recognized in the mapping.")
 
-PortServiceIdentifier()
+port_service_identifier()
